@@ -1,0 +1,63 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 30px;
+  background: linear-gradient(to right, #cceeff 50%, #2c2f36 50%);
+  background-size: 200% 100%;
+  background-position: left;
+  transition: background-position 0.4s ease;
+  cursor: pointer;
+}
+
+input:checked + .slider {
+  background-position: right;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 2;
+  transition: transform 0.4s;
+}
+
+input:checked + .slider::before {
+  transform: translateX(30px);
+}
+
+.knob-icon {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 3;
+  transition: transform 0.4s;
+}
+
+input:checked + .slider .knob-icon {
+  transform: translateX(30px);
+}
